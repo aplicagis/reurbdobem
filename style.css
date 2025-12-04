@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #1f2933;
+  background-color: #f5f7fa;
+  width: 100%;
+  overflow-x: hidden; /* evita faixa em branco à direita ao recolher o painel */
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(120deg, #0b7285, #1971c2);
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.25);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.app-header__title h1 {
+  font-size: 1.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.app-header__title p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.app-main {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 0;
+  height: calc(100vh - 70px);
+}
+
+.sidebar {
+  background-color: #ffffff;
+  border-right: 1px solid #e1e7f0;
+  padding: 1rem 1.25rem;
+  overflow-y: auto;
+}
+
+.sidebar-toggle {
+  width: 100%;
+  margin-bottom: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.4rem;
+  border: 1px solid #cbd2e1;
+  background-color: #e9eef7;
+  color: #102a43;
+  font-size: 0.8rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sidebar-toggle:hover {
+  background-color: #dde5f5;
+}
+
+.app-main.sidebar-collapsed {
+  grid-template-columns: 40px minmax(0, 1fr);
+}
+
+.app-main.sidebar-collapsed .sidebar {
+  padding: 0.35rem 0.35rem;
+}
+
+/* Esconde todo o conteúdo da sidebar quando recolhida... */
+.app-main.sidebar-collapsed .sidebar > * {
+  display: none;
+}
+
+/* ...exceto o botão de recolher/expandir */
+.app-main.sidebar-collapsed .sidebar > .sidebar-toggle {
+  display: block;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-align: center;
+  padding: 0.6rem 0.2rem;
+  font-size: 0.75rem;
+}
+
+.sidebar h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #102a43;
+}
+
+.sidebar p {
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.sidebar ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+}
+
+.sidebar li + li {
+  margin-top: 0.25rem;
+}
+
+.info-box {
+  margin-top: 0.5rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.5rem;
+  background-color: #f0f4f8;
+  border: 1px solid #d8e2f2;
+}
+
+/* Controle de opacidade da NUI dentro do controle de camadas */
+.leaflet-control-layers .nui-opacity-control {
+  padding: 2px 6px 4px;
+  border-top: 1px solid #e1e7f0;
+  margin-top: 2px;
+}
+
+.map-container {
+  position: relative;
+  min-width: 0;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* Legenda do uso e ocupação */
+.map-legend {
+  background-color: #ffffff;
+  padding: 6px 8px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.4);
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.map-legend .legend-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.map-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.map-legend .legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 1px solid #cbd2e1;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 900px) {
+  .app-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid #e1e7f0;
+  }
+}
+
+

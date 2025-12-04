@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Geoportal de Regularização Fundiária Urbana</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Leaflet CSS (sem SRI para evitar bloqueio no navegador) -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- Estilos da aplicação -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="app-header__title">
+        <h1>Geoportal da REURB do BEM</h1>
+        <p>Visualização integrada de informações territoriais urbanas da Vila Fortaleza</p>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="sidebar">
+        <button class="sidebar-toggle" id="sidebar-toggle" type="button">
+          &laquo; recolher painel
+        </button>
+        <h2>Camadas</h2>
+        <div id="layer-panel">
+          <!-- Futuro: checkboxes para camadas temáticas (lotes, ZEIS, etc.) -->
+          <p>
+            Use o controle no canto superior direito do mapa para alternar entre
+            os mapas base e ativar/desativar as camadas.
+          </p>
+        </div>
+
+        <h2>Informações</h2>
+        <div class="info-box">
+          <p>
+            Este webgis é um protótipo focado em
+            <strong>regularização fundiária urbana</strong>. Aqui você poderá:
+          </p>
+          <ul>
+            <li>Visualizar imagem de satélite de alta resolução (Esri).</li>
+            <li>Alternar para um mapa territorial de referência (OSM).</li>            
+          </ul>
+        </div>
+      </section>
+
+      <section class="map-container">
+        <div id="map"></div>
+      </section>
+    </main>
+
+    <!-- Leaflet JS (sem SRI para evitar bloqueio no navegador) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Script da aplicação -->
+    <script src="app.js"></script>
+  </body>
+</html>
+
+
